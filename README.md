@@ -1,4 +1,6 @@
-# Simple vector database for LLM's that stores data in json or in memory.
+# Simple vector database for LLM's that stores data in json or in memory. With dictionary feature.
+
+<img src="https://i.imgflip.com/9cc4al.jpg" alt="Description of Image">
 
 ## from_documents()
 Creates a vector store from a basic list of strings
