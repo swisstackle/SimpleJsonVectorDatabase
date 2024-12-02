@@ -15,7 +15,7 @@ Creates a vector store from a json string.
 Creates a vector store from a json file.
 
 ## search_strings()
-Searches the vector store for strings in case you used from_documents.
+Searches the vector store for strings in case you used `from_documents`. It searches by the strings in the list of strings (`self.documents`)
 
 ## search_dict()
 Searches the vector store for strings in case you used `from_dict_inmemory` or `from_dict_json` or `from_dict_json_file`. It searches by the keys of the dictionary.
