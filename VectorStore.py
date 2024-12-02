@@ -6,7 +6,7 @@ import json
 
 
 class VectorStore:
-    def __init__(self, vectorizer, tfidf_matrix, documents, thePassedDict=None):
+    def __init__(self, vectorizer, tfidf_matrix, documents : list[str], thePassedDict=None):
         self.vectorizer = vectorizer
         self.tfidf_matrix = tfidf_matrix
         self.documents = documents
@@ -56,11 +56,41 @@ class VectorStore:
             for i in top_k_indices
         ]
 
+    def add_memory_string_inmemory(self, string: str):
+        self.documents.append(string)
+
+    def add_memory_dict_inmemory(self, key: str, value):
+        self.thedict[key] = value
+
+    def save_dict_to_json(self, filepath):
+        with open(filepath, "w") as f:
+            json.dump(self.thedict, f)
+
+    def save_strings_to_json(self, filepath):
+        with open(filepath, "w") as f:
+            json.dump(self.documents, f)
+
+    def delete_by_dict_key(self, key):
+        del self.thedict[key]
+
+    def delete_by_value(self, value):
+        if not self.thedict:
+            raise ValueError("No dictionary available to delete from")
+        # Create a list of keys to delete
+        keys_to_delete = []
+        for key, value in self.thedict.items():
+            if value == value:
+                keys_to_delete.append(key)
+            
+        # Delete the keys
+        for key in keys_to_delete:
+            del self.thedict[key]
+        if(value in self.documents):
+            self.documents.remove(value)
 
 if __name__ == "__main__":
-
     vector_store = VectorStore.from_dict_json_file("test.json")
-    query = "Null Reference Exception: The object \"uber\" of type int returned null"
-    context = vector_store.search(query)
-    print(context)
+    vector_store.delete_by_value(["Chocolate", "Mint Frosting"])
+    vector_store.save_dict_to_json("test.json")
+
 
