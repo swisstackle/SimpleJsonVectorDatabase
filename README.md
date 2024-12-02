@@ -6,7 +6,7 @@
 Creates a vector store from a basic list of strings
 
 ## from_dict_inmemory()
-Creates a vector store from a dictionary of list of strings. They can then be searched by the keys of the dictionary.
+Creates a vector store from a dictionary of any type of value. They can then be searched by the keys of the dictionary.
 
 ## from_dict_json()
 Creates a vector store from a json string.
