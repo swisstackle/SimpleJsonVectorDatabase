@@ -18,7 +18,7 @@ Creates a vector store from a json file.
 Searches the vector store for strings in case you used from_documents.
 
 ## search_dict()
-Searches the vector store for strings in case you used from_dict_inmemory or from_dict_json or from_dict_json_file.
+Searches the vector store for strings in case you used `from_dict_inmemory` or `from_dict_json` or `from_dict_json_file`. It searches by the keys of the dictionary.
 
 ## add_memory_string_inmemory()
 Adds a new string to the documents list in memory.
